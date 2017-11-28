@@ -12,3 +12,15 @@
 */
 
 Route::get('/','IndexController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('question')->group(function(){
+  Route::get('/index','QuestionController@index')->name('index');
+
+  Route::get('/editor','QuestionController@editor')->name('editor');
+
+  Route::get('/push','QuestionController@push')->name('push');
+});

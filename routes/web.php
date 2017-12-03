@@ -22,5 +22,5 @@ Route::prefix('question')->group(function(){
 
   Route::get('/editor','QuestionController@editor')->name('editor');
 
-  Route::get('/push','QuestionController@push')->name('push');
+  Route::post('/publish','QuestionController@publish')->name('publish');
 });

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+@include('global._tag')
 <div class="panel panel-default">
   <div class="panel-heading btn-sm">
     <h1 class="panel-title btn-sm text-center"></h1>

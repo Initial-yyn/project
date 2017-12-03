@@ -18,7 +18,7 @@ class CreateQuestionTable extends Migration
             $table->string('name',20)->comment('提问者姓名');
             $table->string('question_title',50)->comment('标题');
             $table->text('question_content')->comment('正文');
-            $table->string('type',20)->comment('问题类型');
+            $table->integer('type')->comment('问题类型[高等数学|线性代数|随机过程|概率论]=>[0|1|2|3]');
             $table->timestamps();
         });
     }

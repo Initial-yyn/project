@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+                @include('global._tag')
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">

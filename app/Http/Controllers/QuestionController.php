@@ -8,12 +8,15 @@ use App\Question;
 class QuestionController extends Controller
 {
     //查看问题主页
-    public function index(){
-        // $questions = Question::orderBy('updated_at')->get();
+    public function index(Request $request){
+        if($request->type){
+            $questions = Question::where('type','=',$request->type)->orderBy('updated_at')->paginate(10);
+        }else {
+          $questions = Question::orderBy('updated_at')->paginate(10);
+        }
 
-        $questions = Question::orderBy('updated_at')->paginate(1);
         return view('question.index',compact('questions'));
-    }
+      }
     //编辑问题
     public function editor(){
       return view('question.editor');
@@ -35,5 +38,11 @@ class QuestionController extends Controller
        }else {
          return response()->json(['status'=>'500','msg'=>'问题发布失败']);
        }
+    }
+
+    public function search($id){
+      dd($id);
+      $question = Question::find($id);
+      return response()->json($question);
     }
 }

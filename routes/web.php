@@ -18,9 +18,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('question')->group(function(){
-  Route::get('/index','QuestionController@index')->name('index');
+  Route::any('/index','QuestionController@index')->name('index');
 
   Route::get('/editor','QuestionController@editor')->name('editor');
 
   Route::post('/publish','QuestionController@publish')->name('publish');
+
+  Route::any('/search/{id}','QuestionController@search');
 });

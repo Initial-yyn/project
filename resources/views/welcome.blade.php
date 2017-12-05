@@ -72,7 +72,7 @@
                         <a href="{{ url('/home') }}">主页</a>
                     @else
                         <a href="{{ route('login') }}">登录</a>
-                        <a href="{{ route('register') }}">注销</a>
+                        <a href="{{ route('register') }}">注册</a>
                     @endauth
                 </div>
             @endif

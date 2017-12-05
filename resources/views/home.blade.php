@@ -8,8 +8,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <p class="text-center"><strong>Hello World!</strong></p>
-                    <p class="text-center"><strong>This is a Micro Intelligent Question Answering System!</strong></p>
+                    <div class="container">
+                      <center><video src="{{asset('video/1.mp4')}}" controls="controls" preload="auto" ></video></center>
+                    </div>
                 </div>
-
 @endsection

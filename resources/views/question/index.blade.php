@@ -7,21 +7,22 @@
     <div class="panel-heading btn-sm">
       <h1 class="panel-title btn-sm text-center"></h1>
     </div>
-    @foreach($questions as $value)
+    @foreach($questions as $question)
     <div class="panel-body panel-info text-center" >
         <div class="list-group">
           <li class="list-group-item list-info">
-            <h2><strong class="text-info">{{$value->question_title}}</strong></h2>
-            <h5><strong class="text-info">editor：{{$value->name}}</strong></h5>
-            <h5><strong class="text-info">time：{{$value->updated_at}}</strong></h5>
+            <h2><strong class="text-info">{{$question->question_title}}</strong></h2>
+            <h5><strong class="text-info">Author ：{{$question->name}}</strong></h5>
+            <h5><strong class="text-info">Time ：{{$question->updated_at}}</strong></h5>
           </li>
 
         </div>
-        <form class="" action="{{  url( '/question/search',['id'=>$value->id] )}}" method="post">
+        <form class="" action="{{ route('show')}}" method="get">
             {{csrf_field()}}
             <button class="btn btn-success center;block" type="submit">
               查看问题
             </button>
+            <input type="hidden" name="id" id="id" value="{{$question->id}}">
         </form>
     </div>
     @endforeach

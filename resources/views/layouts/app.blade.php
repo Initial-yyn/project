@@ -11,7 +11,13 @@
     <title>{{ config('app.name', 'QA') }}</title>
 
     <!-- Styles -->
+    <script src="{{asset('tinymce/tinymce.min.js')}}"></script>
+    <script>tinymce.init({
+      selector:'textarea',
+      encoding:'html'
+    });</script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/jquery-3.2.1.min.js')}}"></script>
 </head>
 <body>
     <div id="app">
@@ -37,7 +43,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">登录</a></li>
-                            <li><a href="{{ route('register') }}">注销</a></li>
+                            <li><a href="{{ route('register') }}">注册</a></li>
                         @else
                             <li class="dropdown  pull-right">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

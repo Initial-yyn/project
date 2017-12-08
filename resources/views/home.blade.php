@@ -9,7 +9,10 @@
                         </div>
                     @endif
                     <div class="container">
-                      <center><video src="{{asset('video/1.mp4')}}" controls="controls" preload="auto" ></video></center>
+                      <!-- 16:9 aspect ratio -->
+                      <div class="embed-responsive embed-responsive-16by9">
+                        <center><video src="{{asset('video/1.mp4')}}" controls="controls" preload="auto" ></video></center>
+                      </div>
                     </div>
                 </div>
 @endsection

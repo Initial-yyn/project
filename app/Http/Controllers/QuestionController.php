@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Answer;
 
 class QuestionController extends Controller
 {
@@ -40,9 +41,11 @@ class QuestionController extends Controller
        }
     }
 
-    public function search($id){
-      dd($id);
+    public function show(Request $request){
+      $id = $request->id;
       $question = Question::find($id);
-      return response()->json($question);
+      $answers = Answer::where('article_id',$id)->get();
+      return view('question.show')->with('question',$question)
+                                  ->with('answers',$answers);
     }
 }

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="margin-bottom: 0px;">
                 <div class="panel-heading">
                   <!-- Single button -->
                   <ul class="nav nav-pills nav-justified">

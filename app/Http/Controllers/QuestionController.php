@@ -11,9 +11,9 @@ class QuestionController extends Controller
     //查看问题主页
     public function index(Request $request){
         if($request->type){
-            $questions = Question::where('type','=',$request->type)->orderBy('updated_at')->paginate(10);
+            $questions = Question::where('type','=',$request->type)->orderBy('updated_at','DESC')->paginate(10);
         }else {
-          $questions = Question::orderBy('updated_at')->paginate(10);
+          $questions = Question::orderBy('updated_at','DESC')->paginate(10);
         }
 
         return view('question.index',compact('questions'));
@@ -25,19 +25,18 @@ class QuestionController extends Controller
 
     //发布问题
     public function publish(Request $request){
-
       //将传递来的数据入库
       $question =  Question::create([
-         'name'=>$request->username,
+         'name'=>$request->name,
          'question_title'=>$request->question_title,
          'question_content'=>$request->question_content,
          'type'=>$request->type
        ]);
        //如果入库成功则返回成功或失败
        if($question){
-         return response()->json(['status'=>'200','msg'=>'问题发布成功']);
+           return redirect('question/index');
        }else {
-         return response()->json(['status'=>'500','msg'=>'问题发布失败']);
+         echo "入库失败";
        }
     }
 

@@ -3,6 +3,11 @@
 @section('content')
 @include('global._tag')
 <div class="container">
+    <ul class="nav nav-pills">
+        <li role="presentation" class="{{(preg_match('/type=1/',$_SERVER['REQUEST_URI']))? 'active' : ''}}"><a href="index?type=1">type1</a></li>
+        <li role="presentation" class="{{(preg_match('/type=2/',$_SERVER['REQUEST_URI']))? 'active' : ''}}"><a href="index?type=2">type2</a></li>
+        <li role="presentation" class="{{(preg_match('/type=3/',$_SERVER['REQUEST_URI']))? 'active' : ''}}"><a href="index?type=3">type3</a></li>
+    </ul>
   <div class="panel panel-default">
     <div class="panel-heading btn-sm">
       <h1 class="panel-title btn-sm text-center"></h1>

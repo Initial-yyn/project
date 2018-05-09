@@ -18,6 +18,8 @@
       <li class="list-group-item">
         <p class="text-center">{{$answer->answer}}</p>
         <p class="text-right text-success">{{$answer->name}}</p>
+        <p class="text-right text-success">{{$answer->role}}</p>
+        <p class="text-right text-success">{{$answer->created_at}}</p>
       </li>
     </ul>
     @endforeach

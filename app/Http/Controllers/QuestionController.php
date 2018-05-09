@@ -39,12 +39,4 @@ class QuestionController extends Controller
          echo "入库失败";
        }
     }
-
-    public function show(Request $request){
-      $id = $request->id;
-      $question = Question::find($id);
-      $answers = Answer::where('article_id',$id)->get();
-      return view('question.show')->with('question',$question)
-                                  ->with('answers',$answers);
-    }
 }

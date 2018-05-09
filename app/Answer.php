@@ -8,5 +8,5 @@ class Answer extends Model
 {
     //
     protected $table = 'answer';
-    protected $fillable = ['article_id','name','answer'];
+    protected $fillable = ['article_id','name','answer','role'];
 }

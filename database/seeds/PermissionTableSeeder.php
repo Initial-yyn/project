@@ -26,20 +26,20 @@ class PermissionTableSeeder extends Seeder
         //开启外键约束
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
         //创建初始的管理员用户
-      $yyn = User::create([
-        'name' => '超级管理员',
+      $a = User::create([
+        'name' => '测试管理员',
         'email' => 'admin@qq.com',
         'password' => bcrypt('123456')
-      ]);
+       ]);
 
-      $test1 = User::create([
-        'name' => '教师',
+      $b = User::create([
+        'name' => '测试教师',
         'email' => 'teacher@qq.com',
         'password' => bcrypt('123456')
       ]);
 
-      $test2 = User::create([
-        'name' => '学生',
+      $c = User::create([
+        'name' => '测试学生',
         'email' => 'student@qq.com',
         'password' => bcrypt('123456')
       ]);
@@ -118,8 +118,8 @@ class PermissionTableSeeder extends Seeder
       }
 
       //给用户赋予相应的角色
-      $yyn->attachRole($admin);
-      $test1->attachRole($teacher);
-      $test2->attachRole($student);
+      $a->attachRole($admin);
+      $b->attachRole($teacher);
+      $c->attachRole($student);
     }
 }

@@ -24,7 +24,7 @@ Route::prefix('question')->group(function(){
 
   Route::post('/publish','QuestionController@publish')->name('publish');
 
-  Route::get('/index/show','QuestionController@show')->name('show');
+  Route::get('/index/show','AnswerController@show')->name('show');
 });
 
 Route::prefix('answer')->group(function(){

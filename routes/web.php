@@ -11,33 +11,46 @@
 |
 */
 
+//主页
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','IndexController@index');
 
+//登陆
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+//问题
 Route::prefix('question')->group(function(){
-  Route::any('/index','QuestionController@index')->name('index');
 
-  Route::get('/editor','QuestionController@editor')->name('editor');
+    Route::any('/index','QuestionController@index')->name('index');
 
-  Route::post('/publish','QuestionController@publish')->name('publish');
+    Route::get('/editor','QuestionController@editor')->name('editor');
 
-  Route::get('/index/show','AnswerController@show')->name('show');
-});
-
-Route::prefix('answer')->group(function(){
-  Route::post('/store','AnswerController@store')->name('store');
+    Route::post('/publish','QuestionController@publish')->name('publish');
 });
 
 Route::prefix('question/index')->group(function(){
+
     Route::get('type/{type?}', function ($num){
+
         return 'type '.$num;
     });
 });
 
+//答案
+Route::prefix('answer')->group(function(){
 
+    Route::post('/store','AnswerController@store')->name('store');
+
+    Route::get('/index/show','AnswerController@show')->name('show');
+});
+
+//智能
+Route::prefix('QA')->group(function(){
+    Route::any('/transit','QAController@transit')->name('transit');
+    Route::any('/search','QAController@search')->name('search');
+});
+
+//权限
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 
   Route::any('/roles/index','RolesController@index');
